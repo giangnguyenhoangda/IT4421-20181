@@ -5,7 +5,7 @@
 @endsection
 
 @section('head')
-	<link rel="alternate" type="application/rss+xml" title="Nguồn tin Demo thegioidiong flatsome &raquo; Sản phẩm" href="http://localhost/TGDD/cua-hang/feed/" />
+	<link rel="alternate" type="application/rss+xml" title="Bk tech &raquo; Sản phẩm" href="http://localhost/TGDD/cua-hang/feed/" />
 @endsection
 
 @section('main')
