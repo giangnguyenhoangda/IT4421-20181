@@ -2079,10 +2079,10 @@
 	                                    }(document, 'script', 'facebook-jssdk'));
 	                                </script>
 								</p>
-								<div class="fb-page" data-href="https://www.facebook.com/truesmartphone/" data-tabs="timeline" data-width="288" data-height="280" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-									<blockquote cite="https://www.facebook.com/truesmartphone/" class="fb-xfbml-parse-ignore">
+								<div class="fb-page" data-href="https://www.facebook.com/NguyenBaKhai97/" data-tabs="timeline" data-width="288" data-height="280" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+									<blockquote cite="https://www.facebook.com/NguyenBaKhai97/" class="fb-xfbml-parse-ignore">
 										<p>
-											<a href="https://www.facebook.com/truesmartphone/">TrueSmart &#8211; Hệ Thống Bán Lẻ Di Động Chính Hãng</a>
+											<a href="https://www.facebook.com/NguyenBaKhai97/">BKtech &#8211; Hệ Thống Bán Lẻ Di Động Chính Hãng</a>
 										</p>
 									</blockquote>
 								</div>

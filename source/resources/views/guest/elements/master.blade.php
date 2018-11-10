@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>@yield('title')</title>
-    <link rel="icon" href="{{ asset('uploads/logo-tgdd.png') }}">
+    <link rel="icon" href="{{ asset('uploads/hustlog.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="http://localhost/TGDD/xmlrpc.php" />
@@ -60,17 +60,20 @@
             <div class="ring-alo-ph-circle"></div>
             <div class="ring-alo-ph-circle-fill"></div>
             <div class="ring-alo-ph-img-circle">
-                <a href="tel:0358215007">
+                <a href="tel:0399417566">
                     <img class="lazy" src="{{ asset('plugins/easy-call-now/public/images/phone-ring.png') }}" alt="<php _e('Click to Call','call-now'); ?>">
                     <noscript>&amp;lt;img src="{{ asset('plugins/easy-call-now/public/images/phone-ring.png') }}" alt=""&amp;gt;</noscript>
                 </a>
             </div>
         </div>
         <div class="tel">
-            <p class="fone">0358215007</p>
+            <p class="fone">0399417566</p>
         </div>
     </div>
     <style type="text/css">
+            body,header,footer,nav,p,span,div,button,input,li,ul,img,h1,h2,h3,h4,h5  {
+                font-family: "Times New Roman", Times, serif;
+            }
             .ring-alo-phone.ring-alo-green .ring-alo-ph-img-circle {
                 background-color: #f00;
             }

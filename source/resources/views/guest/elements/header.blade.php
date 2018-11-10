@@ -1,6 +1,6 @@
 <header id="header" class="header has-sticky sticky-jump "  >
             <div class="header-wrapper">
-                <div id="masthead" class="header-main ">
+                <div id="masthead" class="header-main " style="background-color: #dad55e">
                     <div class="header-inner flex-row container logo-left" role="navigation">
                         <!-- Logo -->
                         <div id="logo" class="flex-col logo">
