@@ -49,11 +49,7 @@
 
 					@yield('content')
 
-					<!-- Footer -->
-					<div class="footer text-muted">
-						© 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
-					</div>
-					<!-- /footer -->
+
 					
 				</div>
 				<!-- /content area -->
