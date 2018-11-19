@@ -1,12 +1,12 @@
 @extends('guest.elements.master')
 
 @section('title')
-	BKTECH
+	BKTECH - Thế Giới Công Nghệ
 @endsection
 
 @section('head')
 	<link rel="canonical" href="http://localhost/TGDD/" />
-
+	<link rel='shortlink' href='http://localhost/TGDD/' />
 	<link rel="alternate" type="application/json+oembed" href="http://localhost/TGDD/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2FTGDD%2F" />
 	<link rel="alternate" type="text/xml+oembed" href="http://localhost/TGDD/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2FTGDD%2F&#038;format=xml" />
 @endsection
@@ -2079,10 +2079,10 @@
 	                                    }(document, 'script', 'facebook-jssdk'));
 	                                </script>
 								</p>
-								<div class="fb-page" data-href="https://www.facebook.com/NguyenBaKhai97/" data-tabs="timeline" data-width="288" data-height="280" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-									<blockquote cite="https://www.facebook.com/NguyenBaKhai97/" class="fb-xfbml-parse-ignore">
+								<div class="fb-page" data-href="https://www.facebook.com/bktech.azurewebsites.net/" data-tabs="timeline" data-width="288" data-height="280" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+									<blockquote cite="https://www.facebook.com/bktech.azurewebsites.net/" class="fb-xfbml-parse-ignore">
 										<p>
-											<a href="https://www.facebook.com/NguyenBaKhai97/">BKtech &#8211; Hệ Thống Bán Lẻ Di Động Chính Hãng</a>
+											<a href="https://www.facebook.com/bktech.azurewebsites.net/">BKTECH &#8211; Thế Giới Công Nghệ</a>
 										</p>
 									</blockquote>
 								</div>

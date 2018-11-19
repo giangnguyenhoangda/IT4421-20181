@@ -5,22 +5,30 @@
 @section('content')
 	<!-- Cover area -->
 				<div class="profile-cover">
-					<div class="profile-cover-img" style="background-image: url({{ asset('uploads/placeholder.jpg') }})"></div>
+					<div class="profile-cover-img" @if ($user->avatar!=null)
+						style="background-image: url('{{ asset($user->avatar) }}')"
+					@else
+						style="background-image: url({{ asset('uploads/placeholder.jpg') }})"
+					@endif></div>
 					<div class="media">
 						<div class="media-left">
 							<a href="#" class="profile-thumb">
-								<img src="{{ asset('uploads/placeholder.jpg') }}" class="img-circle" alt="">
+								<img src="@if ($user->avatar!=null)
+									{{ asset($user->avatar) }}
+								@else
+									{{ asset('uploads/placeholder.jpg') }}
+								@endif" class="img-circle" alt="">
 							</a>
 						</div>
 
 						<div class="media-body">
-				    		<h1>Hanna Dorman <small class="display-block">UX/UI designer</small></h1>
+				    		<h1>Giang Nguyễn <small class="display-block">Nhân Viên</small></h1>
 						</div>
 
 						<div class="media-right media-middle">
 							<ul class="list-inline list-inline-condensed no-margin-bottom text-nowrap">
-								<li><a href="#" class="btn btn-default"><i class="icon-file-picture position-left"></i> Cover image</a></li>
-								<li><a href="#" class="btn btn-default"><i class="icon-file-stats position-left"></i> Statistics</a></li>
+								
+								
 							</ul>
 						</div>
 					</div>
@@ -36,9 +44,9 @@
 
 					<div class="navbar-collapse collapse" id="navbar-filter">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#activity" data-toggle="tab"><i class="icon-menu7 position-left"></i> Activity</a></li>
-							<li><a href="#schedule" data-toggle="tab"><i class="icon-calendar3 position-left"></i> Schedule <span class="badge badge-success badge-inline position-right">32</span></a></li>
-							<li><a href="#settings" data-toggle="tab"><i class="icon-cog3 position-left"></i> Settings</a></li>
+							<li class="active"><a href="#activity" data-toggle="tab"><i class="icon-menu7 position-left"></i> Hoạt Động</a></li>
+							<li><a href="#schedule" data-toggle="tab"><i class="icon-calendar3 position-left"></i> Lịch <span class="badge badge-success badge-inline position-right">32</span></a></li>
+							<li><a href="#settings" data-toggle="tab"><i class="icon-cog3 position-left"></i> Cài Đặt</a></li>
 						</ul>
 
 						<div class="navbar-right">
@@ -481,7 +489,7 @@
 										<!-- Profile info -->
 										<div class="panel panel-flat">
 											<div class="panel-heading">
-												<h6 class="panel-title">Profile information</h6>
+												<h6 class="panel-title">Thông Tin Cá Nhân</h6>
 												<div class="heading-elements">
 													<ul class="icons-list">
 								                		<li><a data-action="collapse"></a></li>
@@ -492,16 +500,19 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="#">
+												<form action="{{ route('postChangeInfoE') }}" enctype="multipart/form-data" method="post">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
-																<label>Username</label>
-																<input type="text" value="Eugene" class="form-control">
+																<label>Họ Tên:</label>
+																<input type="hidden" name="_token" value="{{ csrf_token() }}">
+																<input type="hidden" name="id" value="{{ $user->id }}">
+																<input type="text" name="fullname" placeholder="Họ Tên" class="form-control" value="{{ $user->fullname }}">
 															</div>
 															<div class="col-md-6">
-																<label>Full name</label>
-																<input type="text" value="Kopyov" class="form-control">
+																<label>Vai Trò</label>
+																<input type="text" readonly="readonly"
+																 placeholder="Nhân Viên" value="Nhân Viên" class="form-control">
 															</div>
 														</div>
 													</div>
@@ -509,71 +520,35 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
-																<label>Address line 1</label>
-																<input type="text" value="Ring street 12" class="form-control">
+																<label>Số Điện Thoại</label>
+																<input type="text" name="phonenumber" placeholder="09........" value="{{ $user->phonenumber }}" class="form-control">
 															</div>
-															<div class="col-md-6">
-																<label>Address line 2</label>
-																<input type="text" value="building D, flat #67" class="form-control">
-															</div>
-														</div>
-													</div>
-
-													<div class="form-group">
-														<div class="row">
-															<div class="col-md-4">
-																<label>City</label>
-																<input type="text" value="Munich" class="form-control">
-															</div>
-															<div class="col-md-4">
-																<label>State/Province</label>
-																<input type="text" value="Bayern" class="form-control">
-															</div>
-															<div class="col-md-4">
-																<label>ZIP code</label>
-																<input type="text" value="1031" class="form-control">
-															</div>
-														</div>
-													</div>
-
-													<div class="form-group">
-														<div class="row">
 															<div class="col-md-6">
 																<label>Email</label>
-																<input type="text" readonly="readonly" value="eugene@kopyov.com" class="form-control">
-															</div>
-															<div class="col-md-6">
-									                            <label>Your country</label>
-									                            <select class="select">
-									                                <option value="germany" selected="selected">Germany</option> 
-									                                <option value="france">France</option> 
-									                                <option value="spain">Spain</option> 
-									                                <option value="netherlands">Netherlands</option> 
-									                                <option value="other">...</option> 
-									                                <option value="uk">United Kingdom</option> 
-									                            </select>
+																<input type="text" name="email" value="{{ $user->email }}" placeholder="abc@xyz.t" class="form-control">
 															</div>
 														</div>
 													</div>
+
+													
+
+													
 
 							                        <div class="form-group">
 							                        	<div class="row">
-							                        		<div class="col-md-6">
-																<label>Phone #</label>
-																<input type="text" value="+99-99-9999-9999" class="form-control">
-																<span class="help-block">+99-99-9999-9999</span>
-							                        		</div>
+							                        		
 
 															<div class="col-md-6">
-																<label class="display-block">Upload profile image</label>
-							                                    <input type="file" class="file-styled">
-							                                    <span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+																<label class="display-block">Avatar</label>
+							                                    <input type="file" name="avatar_new" class="file-styled">
+							                                    <input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
+							                                    <span class="help-block">Định Dạng Hỗ Trợ: gif, png, jpg.</span>
 															</div>
 							                        	</div>
 							                        </div>
 
 							                        <div class="text-right">
-							                        	<button type="submit" class="btn btn-primary">Save <i class="icon-arrow-right14 position-right"></i></button>
+							                        	<button type="submit" class="btn btn-primary">Lưu <i class="icon-arrow-right14 position-right"></i></button>
 							                        </div>
 												</form>
 											</div>
@@ -584,7 +559,7 @@
 										<!-- Account settings -->
 										<div class="panel panel-flat">
 											<div class="panel-heading">
-												<h6 class="panel-title">Account settings</h6>
+												<h6 class="panel-title">Cài Đặt Mật Khẩu</h6>
 												<div class="heading-elements">
 													<ul class="icons-list">
 								                		<li><a data-action="collapse"></a></li>
@@ -595,17 +570,20 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="#">
+												<form action="{{ route('postChangePass') }}" enctype="multipart/form-data" method="post">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
 																<label>Username</label>
-																<input type="text" value="Kopyov" readonly="readonly" class="form-control">
+																<input type="hidden" name="_token" value="{{ csrf_token() }}">
+																<input type="hidden" name="id" value="{{ $user->id }}">
+																<input type="text" value="{{ $user->username }}" readonly="readonly" class="form-control">
 															</div>
 
 															<div class="col-md-6">
-																<label>Current password</label>
-																<input type="password" value="password" readonly="readonly" class="form-control">
+																<label>Mật Khẩu Hiện Tại</label>
+																<input type="hidden" name="cur_pass" value="{{ $user->password }}">
+																<input type="password" placeholder="Mật Khẩu Hiện Tại" class="form-control">
 															</div>
 														</div>
 													</div>
@@ -613,87 +591,21 @@
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
-																<label>New password</label>
-																<input type="password" placeholder="Enter new password" class="form-control">
+																<label>Mật Khẩu Mới</label>
+																<input type="password" name="pass_new" placeholder="Mật Khẩu Mới" class="form-control">
 															</div>
 
 															<div class="col-md-6">
-																<label>Repeat password</label>
-																<input type="password" placeholder="Repeat new password" class="form-control">
+																<label>Nhập Lại Mật Khẩu</label>
+																<input type="password" placeholder="Nhập Lại Mật Khẩu" class="form-control">
 															</div>
 														</div>
 													</div>
 
-													<div class="form-group">
-														<div class="row">
-															<div class="col-md-6">
-																<label>Profile visibility</label>
-
-																<div class="radio">
-																	<label>
-																		<input type="radio" name="visibility" class="styled" checked="checked">
-																		Visible to everyone
-																	</label>
-																</div>
-
-																<div class="radio">
-																	<label>
-																		<input type="radio" name="visibility" class="styled">
-																		Visible to friends only
-																	</label>
-																</div>
-
-																<div class="radio">
-																	<label>
-																		<input type="radio" name="visibility" class="styled">
-																		Visible to my connections only
-																	</label>
-																</div>
-
-																<div class="radio">
-																	<label>
-																		<input type="radio" name="visibility" class="styled">
-																		Visible to my colleagues only
-																	</label>
-																</div>
-															</div>
-
-															<div class="col-md-6">
-																<label>Notifications</label>
-
-																<div class="checkbox">
-																	<label>
-																		<input type="checkbox" class="styled" checked="checked">
-																		Password expiration notification
-																	</label>
-																</div>
-
-																<div class="checkbox">
-																	<label>
-																		<input type="checkbox" class="styled" checked="checked">
-																		New message notification
-																	</label>
-																</div>
-
-																<div class="checkbox">
-																	<label>
-																		<input type="checkbox" class="styled" checked="checked">
-																		New task notification
-																	</label>
-																</div>
-
-																<div class="checkbox">
-																	<label>
-																		<input type="checkbox" class="styled">
-																		New contact request notification
-																	</label>
-																</div>
-															</div>
-														</div>
-													</div>
+													
 
 							                        <div class="text-right">
-							                        	<button type="submit" class="btn btn-primary">Save <i class="icon-arrow-right14 position-right"></i></button>
+							                        	<button type="submit" class="btn btn-primary">Lưu <i class="icon-arrow-right14 position-right"></i></button>
 							                        </div>
 						                        </form>
 											</div>
@@ -896,7 +808,11 @@
 					<!-- /user profile -->
 
 
-					
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+					</div>
+					<!-- /footer -->
 
 				</div>
 				<!-- /content area -->

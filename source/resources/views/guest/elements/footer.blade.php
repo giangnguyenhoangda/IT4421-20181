@@ -1,5 +1,5 @@
 <footer id="footer" class="footer-wrapper">
-            <section class="section white" id="section_639320110">
+            <section class="section dark" id="section_639320110">
                 <div class="bg section-bg fill bg-fill  bg-loaded">
                 </div>
                 <!-- .section-bg -->
@@ -16,21 +16,23 @@
                         <div class="col medium-3 small-12 large-3">
                             <div class="col-inner">
                                 <p><strong>DỊCH VỤ KHÁCH HÀNG </strong>
-                                    <br />Giới thiệu về nhóm
+                                    <br />Giới thiệu về công ty
                                     <br />Tìm hiểu về mua trả góp
                                     <br />Chính sách bảo hành
                                     <br />Chính sách đổi trả
                                     <br />Hướng dẫn mua hàng
+                                    <br />Giao hàng và thanh toán </p>
                             </div>
                         </div>
                         <div class="col medium-3 small-12 large-3">
                             <div class="col-inner">
                                 <p><strong>THÔNG TIN LIÊN HỆ</strong>
-                                    <br />Địa chỉ : Bách Khoa - Hai Bà Trưng - Hà Nội
-                                    <br />Hotline1:0399417566
+                                    <br />Địa chỉ :Bách Khoa - Hai Bà Trưng - Hà Nội 
+                                    <br />Hotline1: 0358215007
                                     <br />Hotline2:
-                                    <br />Email: khai199733@gmail.com
-                                    <br />Website: bktech.com</p>
+                                    <br />Hotline3:
+                                    <br />Email: giangnguyenhoangda@gmail.com
+                                    <br />Website: bktech.azurewebsites.net</p>
                                 <ul class="product_list_widget"></ul>
                             </div>
                         </div>
@@ -52,7 +54,7 @@
                     #section_639320110 {
                         padding-top: 20px;
                         padding-bottom: 20px;
-                        background-color: rgb(0, 0, 0);
+                        background-color: #eee;
                     }
                 </style>
             </section>
@@ -60,7 +62,7 @@
                 <div class="container clearfix">
                     <div class="footer-primary pull-left">
                         <div class="copyright-footer">
-                            <p style="text-align: center;"><em>Địa chỉ:Bách Khoa - Hà Bà Trưng - Hà Nội. Điện thoại: 0399417566. Email: khai199733@gmail.com</em></p>
+                            <p style="text-align: center;"><em>Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 18001060. Email: cskh@thegioididong.com</em></p>
                         </div>
                     </div>
                     <!-- .left -->
