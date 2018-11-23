@@ -24,12 +24,13 @@
 	<!-- /core JS files -->
 
 	<!-- Theme JS files -->
-	<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/moment/moment.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('employee/js/plugins/pickers/daterangepicker.js') }}"></script>
-	
+
+	@yield('js1')
+	@yield('js2')
 	<script type="text/javascript" src="{{ asset('employee/js/core/app.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('employee/js/pages/dashboard.js') }}"></script>
+	@yield('js3')
 	<script type="text/javascript" src="{{ asset('employee//js/plugins/ui/ripple.min.js') }}"></script>
+	@yield('js4')
 
 	<!-- /theme JS files -->
 </head>

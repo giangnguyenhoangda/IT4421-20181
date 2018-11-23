@@ -7,12 +7,39 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Smartdevice;
 use App\Accessory;
+use Illuminate\Support\Facades\DB;
+use Session;
+use App\Cart;
 
 class AccessoryController extends Controller
 {
     public function getAddAccessory()
     {
     	return view('employee.pages.accessory.add_accessory');
+    }
+
+    public function getAllAccessory()
+    {
+        $list=Accessory::all();
+        return view('guest.pages.accessorys',['list'=>$list]);
+    }
+
+    public function postAccessoryAddCart(Request $req)
+    {
+        $accessory=Accessory::find($req->id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($accessory, $accessory->isProduct->id,$req->quantity);
+        $req->session()->put('cart', $cart);
+        // Session::forget('cart');
+        return redirect('gio-hang');
+    }
+
+    public function getAccessory($id)
+    {
+        $accessory=Accessory::find($id);
+        $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
+        return view('guest.pages.accessory-info',['accessory'=>$accessory,'news'=>$news]);
     }
 
     public function getEditAccessory($id)
@@ -32,7 +59,7 @@ class AccessoryController extends Controller
     {
         $accessory=new Accessory;
         $accessory->doDelete($id);
-        echo "Đã xóa xong";
+        return redirect('nhan-vien/phu-kien');
     }
 
     public function postEditAccessory(Request $req)
@@ -60,7 +87,7 @@ class AccessoryController extends Controller
             $accessory->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$description,false);
         }
         
-        echo "Sửa Phụ Kiện Thành Công";
+        return redirect('nhan-vien/phu-kien');
     }
 
     public function postAddAccessory(Request $req)
@@ -81,6 +108,6 @@ class AccessoryController extends Controller
     	$accessory=new Accessory;
     	$accessory->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description);
 
-    	echo "Thêm Điện Thoại Thành Công";
+    	return redirect('nhan-vien/phu-kien');
     }
 }

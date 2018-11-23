@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Smartdevice;
 use App\Tablet;
+use Session;
+use Illuminate\Support\Facades\DB;
+use App\Cart;
 
 class TabletController extends Controller
 {
@@ -15,11 +18,35 @@ class TabletController extends Controller
     	return view('employee.pages.tablet.add_tablet');
     }
 
+    public function getAllTablet()
+    {
+        $list=Tablet::all();
+        return view('guest.pages.tablets',['list'=>$list]);
+    }
+
+    public function postTabletAddCart(Request $req)
+    {
+        $tablet=Tablet::find($req->id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($tablet, $tablet->isProduct->id,$req->quantity);
+        $req->session()->put('cart', $cart);
+        // Session::forget('cart');
+        return redirect('gio-hang');
+    }
+
     public function getEditTablet($id)
     {
         $tablet=new Tablet;
         $tablet=$tablet->search($id);
         return view('employee.pages.tablet.edit_tablet',['tablet'=>$tablet['tablet'],'product'=>$tablet['product'],'smartdevice'=>$tablet['smartdevice']]);
+    }
+
+    public function getTablet($id)
+    {
+        $tablet=Tablet::find($id);
+        $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
+        return view('guest.pages.tablet-info',['tablet'=>$tablet,'news'=>$news]);
     }
 
     public function getListTablet()
@@ -32,7 +59,7 @@ class TabletController extends Controller
     {
         $tablet=new Tablet;
         $tablet->doDelete($id);
-        echo "Đã xóa xong";
+        return redirect('nhan-vien/may-tinh-bang');
     }
 
     public function postEditTablet(Request $req)
@@ -74,7 +101,7 @@ class TabletController extends Controller
             $tablet->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,false);
         }
         
-        echo "Sửa Máy Tính Bảng Thành Công";
+        return redirect('nhan-vien/may-tinh-bang');
     }
 
     public function postAddTablet(Request $req)
@@ -110,6 +137,6 @@ class TabletController extends Controller
     	$tablet=new Tablet;
     	$tablet->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
 
-    	echo "Thêm Máy Tính Bảng Thành Công";
+    	return redirect('nhan-vien/may-tinh-bang');
     }
 }
