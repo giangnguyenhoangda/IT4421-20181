@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/tt','BillController@gettt')->name('gettt');
+Route::get('/sendrequest','BillController@direct')->name('direct');
+Route::get('/getresponse','BillController@response')->name('response');
 Route::get('/', 'GuestController@getHome')->name('getHome');
 
 Route::get('trang-dang-phat-trien', 'GuestController@getDevelopingPage')->name('getDevelopingPage');
