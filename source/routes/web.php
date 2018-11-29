@@ -29,6 +29,8 @@ Route::get('may-tinh/hang/{hang}','LaptopController@getLaptopByManufacturer')->n
 
 Route::get('tin-tuc/xoa-binh-luan/{id}','CommentController@getDeleteNewComment')->name('getDeleteNewComment');
 
+Route::get('dien-thoai/khuyen-mai','SmartPhoneController@getAllKhuyenMai')->name('getAllKhuyenMai');
+
 Route::post('thong-ke/doanh-so','StatisticController@postSaleStatistic')->name('postSaleStatistic');
 
 Route::post('thong-ke/doanh-thu','StatisticController@postIncomeStatistic')->name('postIncomeStatistic');
@@ -215,3 +217,5 @@ Route::get('may-tinh-bang/hang-san-xuat/{name}','TabletController@getTabletByHan
 Route::get('phu-kien/loai-phu-kien/{name}','AccessoryController@getAccessoryByLoai')->name('getAccessoryByLoai');
 
 Route::get('tin-tuc/loai-tin/{name}','NewsController@getNewByLoai')->name('getNewByLoai');
+
+Route::get('test','StatisticController@getTest');
